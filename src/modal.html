@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/fontawesome6/css/all.min.css" />
+    <title>Bind Us | Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v${1:2.x.x}/dist/alpine.js" defer></script> -->
+    <script src="/package/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-gray-300 mb-48">
+    <div class="2xl:container">
+        <div
+            class="border-t border-b ring-1 border-slate-800 p-3 mt-5 grid-cols-2 lg:flex">
+            <div class="order-1 col-span-1 w-full">
+                <div class="flex p-2 justify-between">
+                    <div class="flex">
+                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                        <img class="h-10 w-10 rounded-full object-cover" src="/images/w5.jpg" alt="Profile Photo" />
+                    </button>
+                    <a href="/profile" class="block pl-3">
+                        <h3>Dante Mwangi</h3> 
+                        <i>3 mins ago</i>
+                        </a>
+                    </div>
+                    <div class="absolute">
+                        <div x-data="{ show: false }">
+                            <button x-on:click.prevent="show = true"><i
+                                    class="fa fa-ellipsis text-3xl"></i></button>
+                            <div class="h-auto w-24 bg-gray-dark">
+                                <div x-show="show" x-on:click.outside.prevent="show = false">
+                                    <ol class="right-4 bg-slate-800 text-slate-300 justify-center p-2">
+                                        <li><a href="#">Edit</a></li>
+                                        <li><a href="#">Delete Post</a></li>
+                                        <li><a href="#">Share</a></li>
+                                        <li><a href="#">Report</a></li>
+                                        <li><a href="#">Save Post</a></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block pl-0 pr-0 bg-slate-800 rounded-xl z-20">
+                    <img src="/images/w4.jpg" class="w-full h-72 rounded-xl object-center" alt="">
+                    <div class="flex md:text-2xl gap-2 ml-3 mr-3 p-2 justify-between">
+                        <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-2">
+                            <button type="button"><i class="fa fa-thumbs-up p-1  pr-3 text-slate-300"></i></button>
+                            <i class="text-slate-200 text-sm border-l-2 border-slate-200 p-1 pl-2">810K+</i>
+                        </span>
+
+                        <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-2">
+                            <button type="button"><i class="fa fa-commenting p-1  pr-3 text-slate-300"></i></button>
+                            <i class="text-slate-200 text-sm border-l-2 border-slate-200 p-1 pl-2">71K+</i>
+                        </span>
+                        <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-2">
+                            <button type="button"><i class="fa fa-share-alt p-1 pr-3 text-slate-300"></i></button>
+                            <i class="text-slate-200 text-sm border-l-2 border-slate-200 p-1 pl-2">1K+</i>
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div class="ring-1 ring-offset-0 ml-3 mr-3"></div> -->
+            <!-- <form action="" method="post" class="relative justify-between"> -->
+            <div class="col-span-6 p-3 border-2 ring-offset-1 shadow-inner shadow-gray-800 bg-gray-800 rounded-xl order-2 w-full">
+               
+                <div class="flex space-x-5 m-4">
+                    <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none">
+                        <img class="h-10 w-10 rounded-full object-cover" src="/images/w2.jpg" alt="Profile Photo">
+                    </button>
+                    <div class="block space-x-1 space-y-0 p-2 pb-3 bg-slate-950 rounded-2xl max-w-fit">
+                        <i class="text-white justify-between p-4">Dave Matt</i>
+                        <p class="text-white p-2">That was hilarious. Hii nae
+                            imeweza...</p>
+                            <div class="text-slate-400 text-md space-x-4 pl-5">
+                                <button><i class="fa fa-thumbs-up"></i></button>
+                                <button><i class="fa fa-reply"></i></button>
+                                <button><i class="fa fa-warning"></i></button>
+                            </div>
+
+                    </div>
+                </div>
+                <div class="pb-0">
+                 <div x-data="(comment: '')">
+                    <input x-model="comment" placeholder="Leave a Comment" type="text"
+                        class = "border-gray-300 p-3  mr-3 w-full focus:border-indigo-500 placeholder:text-gray-700 focus:ring-indigo-500 rounded-xl shadow-sm" />
+                    <div class="absolute right-4 -mt-10 pr-3">
+                        <button class="h-8 w-16 text-white rounded-xl bg-red-500 hover:bg-red-600">
+                            <i class="fa fas-arrow"></i>
+                        </button>
+                    </div>
+                    <span x-text="comment" class="text-black"></span>
+                </div>
+                </div>
+                <!-- </form> -->
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript" language="javascript" src="/fontawesome6/js/all.min.js"></script>
+</body>
+</html>

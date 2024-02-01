@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/fontawesome6/css/all.min.css" />
+    <title>Bind Us | Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v${1:2.x.x}/dist/alpine.js" defer></script> -->
+    <script src="/package/dist/cdn.min.js" defer></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-gray-300">
+    <div class="2xl:container font-serif">
+        <nav class="fixed top-0 pl-10  w-full space-y-4 lg:flex z-50 bg-slate-300 rounded-lg">
+            <div class="brand flex pt-5">
+                <span class="text-3xl text-black">BindUs</span>
+                <!-- navbar icons -->
+
+                <div class="flex right-0 absolute pr-8 gap-1">
+                    <button
+                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-green-500 transition">
+                        <img class="h-10 w-10 rounded-full object-cover" src="/images/w5.jpg" alt="Profile Photo" />
+                    </button>
+
+                    <div class="flex rounded-md">
+                        <button type="button"
+                            class="inline-flex items-center px-3 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 
+                     focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                            <!-- {{ auth()->user()->name }} -->
+                            <i class="hover:text-pink-600">Hi, VIQ</i>
+                            <svg class="ml-2 -mr-0.5 h-4 w-4 text-black" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </button>
+                        <div class="flex bg-slate-200">
+                           <i><a href="#">Profile</a></i>
+                           <i><a href="#">Groups</a></i>
+                           <i><a href="#">Messages</a></i>
+                           <i><a href="#">LogOut</a></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pl-5">
+                <ul class="text-xl flex space-x-3  font-sans">
+                    <span><a href="#" class="hover:text-red-700"><i class="fa fa-newspaper pl-5"></i>
+                            <h5>Home</h5>
+                        </a></span>
+                    <span><a href="#" class="hover:text-red-700"><i class="fa fa-person-digging pl-4"></i>
+                            <h5>BizArt</h5>
+                        </a></span>
+                    <span><a href="#" class="hover:text-red-700"><i class="fa fa-mountain-city pl-6"></i>
+                            <h5>JuAfrica</h5>
+                        </a></span>
+                    <!-- <span><a href="#" class="hover:text-red-700"><i class="fa fa-users-between-lines pl-12"></i>
+                            <h5>Entertainment</h5> -->
+                        </a></span>
+                    <span><a href="#" class="hover:text-red-700"><i class="fa fa-person pl-5"></i>
+                            <h5>Health</h5>
+                        </a></span>
+                    <span><a href="/src/profile.html" class="hover:text-red-700"><i class="fa fa-video pl-3"></i>
+                            <h5 class="text-black">Video</h5>
+                        </a></span>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hidden sm:block">
+            <div class="py-0">
+                <div class="border-t border-gray-800"></div>
+            </div>
+        </div>
+
+        <main class="mt-20 overflow-y-hidden">
+
+            <div class="grid-cols-3 auto-cols-auto w-full lg:flex font-sans 
+        font-normal leading-snug relative">
+                <!-- left home nav page -->
+                <div
+                    class="max-h-full pl-8 pr-8 order-1
+            justify-center hidden lg:grid space-y-4 border-r-2 border-green-950">
+                    <div class="gap-1 text-black text-2xl space-y-2 no-underline italic">
+
+                        <!-- <li><a href="http://" target="_blank" rel="noopener noreferrer"></a></li> -->
+                        <p><a href="#" class="hover:text-pink-700">Friends</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Notifications</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Messages</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Groups</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Top Skills</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Market</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Events</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Feedback</a></p>
+                        <p><a href="#" class="hover:text-pink-700">Settings</a></p>
+
+                    </div>
+                </div>
+
+                <!-- mid home page-->
+                <div class="order-2 grid pl-3 pr-3 justify-center border-r-2 border-green-950 ring-1">
+
+                    <form  method="post" x-data="{name:''}">
+                        <div class="relative border-2 border-gray-100 m-4 rounded-xl">
+                            <div class="absolute top-4 left-3">
+                                <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500"></i>
+                            </div>
+                            <input x-model="name" type="text"
+                                class="h-14 w-full pl-10 pr-20 rounded-lg z-0 focus:shadow focus:outline-none"
+                                placeholder="What's on your mind?"/>
+                            <div  class="absolute top-2 right-2">
+                                <button  x-bind:disabled="name === '' " type="submit"  
+                                    class="h-10 w-20 text-white rounded-xl bg-red-500 hover:bg-red-500">
+                                    Post
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <ul class="flex space-x-2 p-2 overflow-scroll" x-data>
+
+                        <span class="slide">
+                            <img src="/images/w1.jpg" class="w-full  h-full max-w-full rounded-xl"
+                                alt="Our Categories" />
+
+                            <button type="button" class="p-2 text-lg text-gray-dark -mt-24">
+                                Explore
+                            </button>
+
+                        </span>
+                        <span class="slide"><img src="/images/w2.jpg" class="w-full max-w-full h-full rounded-lg"
+                                alt="Our Categories" /></span>
+                        <span class="slide"><img src="/images/w3.jpg" class="w-full max-w-full h-full rounded-lg"
+                                alt="Our Categories" /></span>
+                        <span class="slide"><img src="/images/w4.jpg" class="w-full max-w-full h-full rounded-lg"
+                                alt="Our Categories" /></span>
+                        <span class="slide"><img src="/images/w5.jpg" class="w-full max-w-full h-full rounded-lg"
+                                alt="Our Categories" /></span>
+                        <span class="slide"><img src="/images/w5.jpg" class="w-full max-w-full h-full rounded-lg"
+                                alt="Our Categories" /></span>
+
+                    </ul>
+                    <!-- feeds (feed1) -->
+                    <div class="border-t border-slate-800 p-3 mt-5 min-w-full max-w-full">
+                        <div class="max-w-full flex p-2 relative">
+                            <button
+                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                <img class="h-12 w-12 rounded-full object-cover object-center" src="/images/w5.jpg"
+                                    alt="Profile Photo">
+                            </button>
+                            <span class="pl-5">
+                                <h3 class="font-semibold">Phillip Marcus</h3>
+                                <i>3 secs ago</i>
+                            </span>
+                            <div class="absolute top-2 right-2">
+                                <div x-data="{ show: false }">
+                                    <button x-on:click.prevent="show = true"><i
+                                            class="fa fa-ellipsis text-3xl"></i></button>
+                                    <div class="h-auto w-24 bg-gray-dark">
+                                        <div x-show="show" x-on:click.outside.prevent="show = false">
+                                            <ol class="right-4 bg-slate-800 text-slate-300 justify-center p-2">
+                                                <li><a href="#">Edit</a></li>
+                                                <li><a href="#">Delete Post</a></li>
+                                                <li><a href="#">Share</a></li>
+                                                <li><a href="#">Report</a></li>
+                                                <li><a href="#">Save Post</a></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="leading-snug p-3 text-lg text-green-950">Lorem ipsum dolor sit, amet consectetur
+                            adipisicing elit. Atque, nihil. Laboriosam laudantium reprehenderit ad repudiandae voluptas
+                            voluptate blanditiis, quisquam ducimus fugiat
+                            obcaecati tenetur ipsa alias explicabo ipsum architecto? Labore, ipsam.</p>
+                        <div class="block pl-0 pr-0 bg-slate-800 rounded-xl">
+                            <img src="/images/w5.jpg" class="w-full h-72 rounded-xl object-center" alt="">
+                            <div class="flex text-2xl gap-1 ml-3 mr-3 p-2 justify-between">
+                                <span class="inline-flex text-center bg-slate-900 ring-1 
+                                rounded-full p-1">
+                                    <button  type="button"><i
+                                            class="fa fa-thumbs-up p-1  pr-3 text-slate-200"></i></button>
+                                    <i class="text-slate-200 text-sm border-l 
+                                    ring-offset-1 border-slate-200 p-2">810K+</i>
+                                </span>
+
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <a href="/src/modal.html"><i
+                                            class="fa fa-commenting p-1  pr-3 text-slate-200"></i></a>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1
+                                         border-slate-200 p-2">71K+</i>
+                                </span>
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <button type="button"><i
+                                            class="fa fa-share-alt p-1 pr-3 text-slate-200"></i></button>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1
+                                         border-slate-200 p-2">1K+</i>
+                                </span>
+                            </div>
+                            <div class="ring-1 ring-offset-0 ml-3 mr-3"></div>
+                            <div class="relative justify-between pb-1">
+                                <div class="flex space-x-5 m-2">
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                        <img class="h-8 w-8 rounded-full object-cover" src="/images/w2.jpg"
+                                            alt="Profile Photo">
+                                    </button>
+                                    <span
+                                        class="block space-x-1 space-y-0 p-2 pb-3 bg-slate-900 rounded-2xl max-w-fit">
+                                        <i class="text-white justify-between p-4">Dave Matt</i>
+                                        <p class="text-white p-2">That was hilarious. Hii nae
+                                            imeweza...</p>
+
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- feed 2 will be deleted during back-end dev -->
+                    <div class="border-t border-slate-800 p-3 mt-5 min-w-full max-w-full">
+                        <div class="max-w-full flex p-2 relative">
+                            <button
+                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                <img class="h-14 w-14 rounded-2xl object-cover" src="/images/w5.jpg"
+                                    alt="Profile Photo">
+                            </button>
+                            <div class="pl-5  font-semibold">
+                                <h3 class="text-xl">First Class Farming</h3>
+                                <div class="flex italic">
+                               <i class="pl-2">1 mins ago</i> 
+                               <p class="text-3xl -mt-4 pl-2">  .  </p>
+                               <a href="#"  class="pl-2">Nations Media International</a>
+                            </div>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <div x-data="{ show: false }">
+                                    <button x-on:click.prevent="show = true"><i
+                                            class="fa fa-ellipsis text-3xl"></i></button>
+                                    <div class="h-auto w-24 bg-gray-dark">
+                                        <div x-show="show" x-on:click.outside.prevent="show = false">
+                                            <ol class="right-4 bg-slate-800 text-slate-300 justify-center p-2">
+                                                <li><a href="#">Edit</a></li>
+                                                <li><a href="#">Delete Post</a></li>
+                                                <li><a href="#">Share</a></li>
+                                                <li><a href="#">Report</a></li>
+                                                <li><a href="#">Save Post</a></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="leading-snug p-3 text-lg text-green-950">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus officiis a ipsum illum, voluptatibus mollitia officia. Commodi necessitatibus, 
+                            </p>
+                        <div class="block pl-0 pr-0 bg-slate-800 rounded-xl">
+                            <img src="/images/w4.jpg" class="w-full h-72 rounded-xl object-center" alt="">
+                            <div class="flex text-2xl gap-1 ml-3 mr-3 p-2 justify-between">
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <button type="button"><i
+                                            class="fa fa-thumbs-up p-1  pr-3 text-slate-200"></i></button>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1 border-slate-200 p-2">810K+</i>
+                                </span>
+
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <a href="/src/modal.html"><i
+                                            class="fa fa-commenting p-1  pr-3 text-slate-200"></i></a>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1 border-slate-200 p-2">71K+</i>
+                                </span>
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <button type="button"><i
+                                            class="fa fa-share-alt p-1 pr-3 text-slate-200"></i></button>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1 border-slate-200 p-2">1K+</i>
+                                </span>
+                            </div>
+                            <div class="ring-1 ring-offset-0 ml-3 mr-3"></div>
+                            <div class="relative justify-between pb-1">
+                                <div class="flex space-x-5 m-2">
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                        <img class="h-8 w-8 rounded-full object-cover" src="/images/w2.jpg"
+                                            alt="Profile Photo">
+                                    </button>
+                                    <span
+                                        class="block space-x-1 space-y-0 p-2 pb-3 bg-slate-900 rounded-2xl max-w-fit">
+                                        <i class="text-white justify-between p-4">Dave Matt</i>
+                                        <p class="text-white p-2">That was hilarious. Hii nae
+                                            imeweza...</p>
+
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- feed 3 will be deleted during back-end dev -->
+                    <div class="border-t border-slate-800 p-3 mt-5 min-w-full max-w-full">
+                        <div class="max-w-full flex p-2 relative">
+                            <button
+                                class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                <img class="h-14 w-14 rounded-2xl object-cover" src="/images/w5.jpg"
+                                    alt="Profile Photo">
+                            </button>
+                            <button
+                                class="flex text-sm border-2 ring-1 border-white rounded-full focus:outline-none transition -ml-7 mt-8">
+                                <img class="h-8 w-8 rounded-full object-cover" src="/images/w8.jpg"
+                                    alt="Profile Photo">
+                            </button>
+                            <div class="pl-5">
+                                <h2 class="font-semibold text-xl">Martial Arts Kenya</h2>
+                                <div class="flex font-semibold">
+                                <h3 class="text-md pl-2 italic">Lawrence Burt</h3>
+                                <p class="text-3xl -mt-4 pl-2">.</p> 
+                                <i class="text-sm pl-2 italic"> 1 mins ago</i>
+                            </div>
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <div x-data=" { show: false }">
+                                    <button x-on:click.prevent="show = true"><i
+                                            class="fa fa-ellipsis text-3xl"></i></button>
+                                    <div class="h-auto w-24 bg-gray-dark">
+                                        <div x-show="show" x-on:click.outside.prevent="show = false">
+                                            <ol
+                                                class=" relative right-4 bg-slate-800 text-slate-300 justify-center p-2">
+                                                <li><a href="#">Edit</a></li>
+                                                <li><a href="#">Delete Post</a></li>
+                                                <li><a href="#">Share</a></li>
+                                                <li><a href="#">Report</a></li>
+                                                <li><a href="#">Save Post</a></li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="leading-snug p-3 text-lg text-green-950">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus officiis a ipsum illum, voluptatibus mollitia officia. Commodi necessitatibus, 
+                        </p>
+                        <div class="block pl-0 pr-0 bg-slate-800 rounded-xl">
+                            <img src="/images/w4.jpg" class="w-full h-72 rounded-xl object-center" alt="">
+                            <div class="flex text-2xl gap-1 ml-3 mr-3 p-2 justify-between">
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <button type="button"><i
+                                            class="fa fa-thumbs-up p-1  pr-3 text-slate-200"></i></button>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1 border-slate-200 p-2">810K+</i>
+                                </span>
+
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <a href="/src/modal.html"><i
+                                            class="fa fa-commenting p-1  pr-3 text-slate-200"></i></a>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1 border-slate-200 p-2">71K+</i>
+                                </span>
+                                <span class="inline-flex text-center bg-slate-900 ring-1 rounded-full p-1">
+                                    <button type="button"><i
+                                            class="fa fa-share-alt p-1 pr-3 text-slate-200"></i></button>
+                                    <i
+                                        class="text-slate-200 text-sm border-l ring-offset-1 border-slate-200 p-2">1K+</i>
+                                </span>
+                            </div>
+                            <div class="ring-1 ring-offset-0 ml-3 mr-3"></div>
+                            <div class="relative justify-between pb-1">
+                                <div class="flex space-x-5 m-2">
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                        <img class="h-8 w-8 rounded-full object-cover" src="/images/w2.jpg"
+                                            alt="Profile Photo">
+                                    </button>
+                                    <span
+                                        class="block space-x-1 space-y-0 p-2 pb-3 bg-slate-900 rounded-2xl max-w-fit">
+                                        <i class="text-white justify-between p-4">Dave Matt</i>
+                                        <p class="text-white p-2">That was hilarious. Hii nae
+                                            imeweza...</p>
+
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- right home page-->
+                <div class="order-3 hidden lg:grid text-black w-5/6 max-w-fit p-6">
+                    <div class="justify-center">
+
+                        <div class="block space-x-2 space-y-4">
+                            <h3 class="text-green-700  text-3xl pl-4 pb-2">Discussions</h3>
+
+                            <div class="w-full">
+                                <div>
+                                    <a href="#"
+                                        class="text-xl leading-tight text-gray-950 p-3 font-semibold">Milking millions
+                                        from farming</a>
+                                    <p class="pl-5 pb-2 italic">by Phillip Mutiso</p>
+                                    <img src="/images/w12.jpg" class="w-full h-40 rounded-t-xl" alt="">
+                                </div>
+                                <!-- <h5 class="text-xl leading-tight text-gray-950 p-2">Milking millions from farming</h5> -->
+                                <div
+                                    class="text-2xl text-gray-200 space-x-2 bg-slate-900 max-w-full justify-around p-2 rounded-b-2xl flex">
+                                    <button type="button">
+                                        <i class="fa fa-hand-holding-heart"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="fa fa-arrow-alt-circle-right"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="w-full">
+                                <div>
+                                    <a href="#"
+                                        class="text-xl leading-tight text-gray-950 p-2 font-semibold">Milking millions
+                                        from
+                                        farming</a>
+                                    <p class="pl-5 pb-2 italic">by Phillip Mutiso</p>
+                                    <img src="/images/w12.jpg" class="w-full h-40 rounded-t-xl" alt="">
+                                </div>
+                                <!-- <h5 class="text-xl leading-tight text-gray-950 p-2">Milking millions from farming</h5> -->
+                                <div
+                                    class="text-2xl text-gray-200 space-x-2 bg-slate-900 max-w-full justify-around p-2 rounded-b-2xl flex">
+                                    <button type="button">
+                                        <i class="fa fa-hand-holding-heart"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="fa fa-arrow-alt-circle-right"></i>
+                                    </button>
+                                    <button type="button">
+                                        <i class="fa fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h3 class="text-3xl text-green-900 block pl-4 pt-3">Channels</h3>
+                        <div class="space-y-3 pt-2 text-center">
+                            <br />
+                            <span class="flex space-x-4">
+
+                                <button
+                                    class="flex text-sm border-2 border-transparent rounded-xl focus:outline-none transition">
+                                    <img class="h-12 w-12 rounded-xl object-cover border-2 ring-1"
+                                        src="/images/w8.jpg" alt="Profile Photo">
+                                </button>
+                                <p class="text-xl w-32  max-w-full line-clamp-1 text-ellipsis">SMES</p>
+                                <i class="fa fa-plus text-2xl p-1 end-1"></i>
+
+                            </span>
+                            <span class="flex space-x-4">
+
+                                <button
+                                    class="flex text-sm border-2 border-transparent rounded-xl focus:outline-none transition">
+                                    <img class="h-12 w-12 rounded-xl object-cover" src="/images/w11.jpg"
+                                        alt="Profile Photo">
+                                </button>
+                                <p class="text-xl w-32  text-ellipsis max-w-full line-clamp-1">Fitness KENYA</p>
+                                <i class="fa fa-plus text-2xl p-1"></i>
+
+                            </span>
+                            <span class="flex space-x-4">
+                                <button
+                                    class="flex text-sm border-2 border-transparent rounded-xl focus:outline-none transition">
+                                    <img class="h-12 w-12 rounded-xl object-cover" src="/images/w12.jpg"
+                                        alt="Profile Photo">
+                                </button>
+                                <p class="text-xl w-32 max-w-full line-clamp-1 text-ellipsis">Health</p>
+                                <i class="fa fa-plus text-2xl p-1"></i>
+
+                            </span>
+                            <span class="flex space-x-4">
+                                <button
+                                    class="flex text-sm border-2 border-transparent rounded-xl focus:outline-none transition">
+                                    <img class="h-12 w-12 rounded-xl object-cover" src="/images/w10.jpg"
+                                        alt="Profile Photo">
+                                </button>
+                                <p class="text-xl w-32 max-w-full line-clamp-1 text-ellipsis">Sport</p>
+                                <i class="fa fa-plus text-2xl p-1"></i>
+
+                            </span>
+                            <a href="#" class="text-green-950 pt-6 text-2xl">See all</a>
+                        </div>
+
+                        <div class="space-y-2 pt-4">
+
+                            <h3 class="text-3xl text-green-900 block pb-2 pl-5">Friends</h3>
+                            <div class="hidden sm:block">
+                                <div class="py-2">
+                                    <div class="border-t ring-1 border-gray-800"></div>
+                                </div>
+                            </div>
+                            <div class="shadow-inner">
+                                <span class="flex">
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                        <img class="h-12 w-12 rounded-full object-cover" src="/images/w8.jpg"
+                                            alt="Profile Photo">
+                                    </button>
+                                    <i class="text-xl pl-4 font-semibold">Miles Dekard</i>
+                                </span>
+                                <div class="button-group p-3 space-x-5">
+                                    <button type="button" class="text-white bg-green-700 p-2 rounded-xl">Add
+                                        friend</button>
+                                    <button type="button"
+                                        class="text-white bg-red-700 p-2 rounded-xl">Delete</button>
+                                </div>
+                            </div>
+                            <div class="hidden sm:block">
+                                <div class="py-2">
+                                    <div class="border-t ring-1 border-gray-800"></div>
+                                </div>
+                            </div>
+                            <div class="shadow-inner">
+                                <span class="flex">
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                        <img class="h-12 w-12 rounded-full object-cover" src="/images/w7.jpg"
+                                            alt="Profile Photo">
+                                    </button>
+                                    <i class="text-xl pl-4 font-semibold">Phillip Kane</i>
+                                </span>
+                                <div class="button-group p-3 space-x-5">
+                                    <button type="button" class="text-white bg-green-700 p-2 rounded-xl">Add
+                                        friend</button>
+                                    <button type="button"
+                                        class="text-white bg-red-700 p-2 rounded-xl">Delete</button>
+                                </div>
+                            </div>
+                            <div class="hidden sm:block">
+                                <div class="py-2">
+                                    <div class="border-t ring-1 border-gray-800"></div>
+                                </div>
+                            </div>
+                            <div class="shadow-inner">
+                                <span class="flex">
+                                    <button
+                                        class="flex text-sm border-2 border-transparent rounded-full focus:outline-none transition">
+                                        <img class="h-12 w-12 rounded-full object-cover" src="/images/w6.jpg"
+                                            alt="Profile Photo">
+                                    </button>
+                                    <i class="text-xl pl-4 font-semibold">Duke Denkins</i>
+                                </span>
+                                <div class="button-group p-3 space-x-5">
+                                    <button type="button" class="text-white bg-green-700 p-2 rounded-xl">Add
+                                        friend</button>
+                                    <button type="button"
+                                        class="text-white bg-red-700 p-2 rounded-xl">Delete</button>
+                                </div>
+                            </div>
+                            <div class="hidden sm:block">
+                                <div class="py-2">
+                                    <div class="border-t ring-1 border-gray-800"></div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="text/javascript" language="javascript" src="/fontawesome6/js/all.min.js"></script>
+</body>
+
+</html>

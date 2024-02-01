@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slide{
+    height: 40vh;
+    width: 20%;
+}

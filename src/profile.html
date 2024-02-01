@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/fontawesome6/css/all.min.css" />
+    <title>Bind Us | Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v${1:2.x.x}/dist/alpine.js" defer></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            
+                <!-- @livewire('profile.update-profile-information-form') -->
+
+                <x-section-border />
+          
+
+           
+                <div class="mt-10 sm:mt-0">
+                    <!-- @livewire('profile.update-password-form') -->
+                </div>
+
+                <x-section-border />
+          
+                <div class="mt-10 sm:mt-0">
+                    <!-- @livewire('profile.two-factor-authentication-form') -->
+                </div>
+
+                <x-section-border />
+
+            <div class="mt-10 sm:mt-0">
+                <!-- @livewire('profile.logout-other-browser-sessions-form') -->
+            </div>
+
+                <x-section-border />
+
+                <div class="mt-10 sm:mt-0">
+                    <!-- @livewire('profile.delete-user-form') -->
+                </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" language="javascript" src="/fontawesome6/js/all.min.js"></script>
+</body>
+</html>

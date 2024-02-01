@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="description" content=""> -->
+    <link rel="stylesheet" href="/styles/output.css" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="/fontawesome6/css/all.min.css"/>
+
+    <title>Bind Us | Connect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v${1:2.x.x}/dist/alpine.js" defer></script>
+    <script type="text/javascript" language="javascript" 
+    src="/fontawesome6/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="mb-48">
+    <div class="relative flex" x-data="{ open: false }" @click.away="open = false" @close.stop="open = false">
+        <div @click="open = ! open">
+            <button
+            class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+            <img class="h-12 w-12 rounded-full object-cover" src="/images/w5.jpg" alt="Profile Photo" />
+        </button>
+        </div>
+    
+        <div x-show="open"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="transform opacity-0 scale-95"
+                x-transition:enter-end="transform opacity-100 scale-100"
+                x-transition:leave="transition ease-in duration-75"
+                x-transition:leave-start="transform opacity-100 scale-100"
+                x-transition:leave-end="transform opacity-0 scale-95"
+                class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }} {{ $dropdownClasses }}"
+                style="display: none;"
+                @click="open = false">
+            <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+                {{ $content }}
+            </div>
+        </div>
+    </div>
+    <a href="/src/nav.html" class="no-underline text-xl text-pink-800">Navbar</a>
+    <main class="2xl:container pt-16">
+        <div class="grid-cols-3 grid-flow-col max-w-full flex font-sans font-normal leading-snug  relative">
+            <!-- left -->
+            <div class="pl-8 pr-8 order-1
+            justify-center flex">
+                <div class="gap-1 text-black text-xl no-underline italic">
+
+                    <!-- <li><a href="http://" target="_blank" rel="noopener noreferrer"></a></li> -->
+                    <p><a href="#">Home</a></p>
+                    <p><a href="#">Friends</a></p>
+                    <p><a href="#">Notifications</a></p>
+                    <p><a href="#">Messages</a></p>
+                    <p><a href="#">Groups</a></p>
+                    <p><a href="#">Top Skills</a></p>
+                    <p><a href="#">Market</a></p>
+                    <p><a href="#">Events</a></p>
+                    <p><a href="#">Requests</a></p>
+                    <p><a href="#">Settings</a></p>
+
+                </div>
+            </div>
+
+            <!-- mid -->
+            <div class="order-2 overflowx-y-hidden">
+                <form class="flex space-x-2 p-3 
+             border-b-2 border-green-900">
+
+                    <span class="slide"><img src="/images/w1.jpg" class="w-full h-full max-w-full rounded-lg"
+                            alt="Our Categories" />
+                        <div class="absolute -mt-24 bg-slate-400">
+                            <button type="button" class="p-2 text-lg text-gray-dark ">
+                                Explore
+                            </button>
+                        </div>
+                    </span>
+                    <span class="slide"><img src="/images/w2.jpg" class="w-full h-full rounded-lg"
+                            alt="Our Categories" /></span>
+                    <span class="slide"><img src="/images/w3.jpg" class="w-full h-full rounded-lg"
+                            alt="Our Categories" /></span>
+                    <span class="slide"><img src="/images/w4.jpg" class="w-full h-full rounded-lg"
+                            alt="Our Categories" /></span>
+                    <span class="slide"><img src="/images/w5.jpg" class="w-full h-full rounded-lg"
+                            alt="Our Categories" /></span>
+                </form>
+
+            </div>
+
+            <!-- right -->
+            <div class="order-3 h-full grid">
+                <div class="flex">
+                    <section>
+                        <p class="leading-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+                            architecto tenetur odit
+                            ipsam maxime dolores laborum culpa, eum a ratione molestias sit
+                            facere! Veniam facilis unde laudantium asperiores nemo quidem.</p>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- <div class="justify-center ml-40">
+    <div x-data="{ number: 0 }">
+        <button x-on:click="number++">
+            increment
+        </button>
+        <div x-text="number"></div>
+    </div> -->
+    </div>
+</body>
+
+</html>
